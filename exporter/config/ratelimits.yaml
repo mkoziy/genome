@@ -1,0 +1,44 @@
+rate_limits:
+  clinvar:
+    strategy: token_bucket
+    requests_per_second: 3.0
+    burst: 5
+    max_retries: 5
+    initial_backoff: 1s
+    max_backoff: 60s
+    backoff_multiplier: 2.0
+
+  dbsnp:
+    strategy: token_bucket
+    requests_per_second: 3.0
+    burst: 5
+    max_retries: 5
+    initial_backoff: 1s
+    max_backoff: 60s
+    backoff_multiplier: 2.0
+
+  opensnp:
+    strategy: token_bucket
+    requests_per_second: 1.0
+    burst: 2
+    max_retries: 3
+    initial_backoff: 2s
+    max_backoff: 120s
+    backoff_multiplier: 3.0
+
+  pharmgkb:
+    strategy: token_bucket
+    requests_per_second: 2.0
+    burst: 3
+    max_retries: 5
+    initial_backoff: 1s
+    max_backoff: 60s
+    backoff_multiplier: 2.0
+
+  snpedia:
+    strategy: fixed_delay
+    fixed_delay: 5s
+    max_retries: 3
+    initial_backoff: 10s
+    max_backoff: 300s
+    backoff_multiplier: 3.0
